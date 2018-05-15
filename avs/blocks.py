@@ -92,7 +92,7 @@ class FeaturedPageBlock(blocks.StructBlock):
         required=False,
     )
     text = blocks.RichTextBlock(
-        help_text="A description of the section."
+        help_text="A description of the section.",
         required=False,
     )
     pages = blocks.ListBlock(blocks.PageChooserBlock(
@@ -100,7 +100,7 @@ class FeaturedPageBlock(blocks.StructBlock):
     ))
     button_text = blocks.CharBlock(
         max_length=100,
-        help_text="A verb for the user's action. Ex. Learn more about..."
+        help_text="A verb for the user's action. Ex. Learn more about...",
         required=False,
     )
     button_url = blocks.URLBlock(
@@ -120,5 +120,3 @@ class MagazineListBlock(blocks.StructBlock):
     class Meta:
         icon = "fa-newspaper-o"
         help_text = "Displays images past magazines with links to view them"
-
-class
