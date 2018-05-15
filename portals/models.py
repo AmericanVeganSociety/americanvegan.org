@@ -22,6 +22,10 @@ class PortalPage(Page):
         ('magazines', MagazineListBlock())
     ])
 
+    parent_page_types = [
+        'home.HomePage'
+    ]
+
     # TODO: sidebar = sidebar ???
 
     content_panels = Page.content_panels + [

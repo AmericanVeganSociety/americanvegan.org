@@ -22,6 +22,10 @@ class HomePage(Page):
         ('magazines', MagazineListBlock())
     ])
 
+    subpage_types = [
+        'portals.PortalPage'
+    ]
+
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
     ]

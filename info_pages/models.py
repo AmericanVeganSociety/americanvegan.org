@@ -10,7 +10,8 @@ from avs.blocks import (
 
 class InfoPage(Page):
     """
-    A child page of a portal which displays long-form information to a curious reader, usually limited to a specific topic, ex. "About Ahimsa"
+    A child page of a portal which displays long-form information to a curious
+    reader, usually limited to a specific topic, ex. "About Ahimsa"
     """
     body = StreamField([
         ('events_list', EventListBlock()),
@@ -20,6 +21,10 @@ class InfoPage(Page):
         ('magazines', MagazineListBlock()),
         ('section_block', SectionBlock())
     ])
+
+    parent_page_types = [
+        'portals.PortalPage'
+    ]
 
     # TODO: sidebar = sidebar ???
 
