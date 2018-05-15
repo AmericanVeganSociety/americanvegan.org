@@ -11,7 +11,9 @@ class EventListBlock(blocks.StructBlock):
 
 
 class CtaBlock(blocks.StructBlock):
-    """ Directs users elsewhere by showing a series of cards. """
+    """
+    Directs users elsewhere by showing an image and some info with a button.
+    """
     headline = blocks.CharBlock(
         max_length=100,
         help_text="A brief demand with a verb."
@@ -19,10 +21,9 @@ class CtaBlock(blocks.StructBlock):
     image = ImageChooserBlock(
         help_text="Upload an image to show alongside the call-to-action."
     )
-    tagline = blocks.CharBlock(
-        max_length=255,
-        help_text="One sentence about what users can expect once they click "
-                  "the button."
+    text = blocks.RichTextBlock(
+        help_text="A description about why a user should click the button, "
+                  "and what to expect when they do."
     )
     button_text = blocks.CharBlock(
         max_length=50,
@@ -85,17 +86,28 @@ class QuoteBlock(blocks.StructBlock):
 
 
 class FeaturedPageBlock(blocks.StructBlock):
+    headline = blocks.CharBlock(
+        max_length=255,
+        help_text="The header of this section",
+        required=False,
+    )
+    text = blocks.RichTextBlock(
+        help_text="A description of the section."
+        required=False,
+    )
     pages = blocks.ListBlock(blocks.PageChooserBlock(
         help_text="Select the pages you would like to highlight"
     ))
     button_text = blocks.CharBlock(
         max_length=100,
         help_text="A verb for the user's action. Ex. Learn more about..."
+        required=False,
     )
     button_url = blocks.URLBlock(
         label="Button URL",
         help_text="The target location of the button. ex. "
-                  "https://americanvegan.org/my-page/"
+                  "https://americanvegan.org/my-page/",
+        required=False,
     )
 
     class Meta:
@@ -108,3 +120,5 @@ class MagazineListBlock(blocks.StructBlock):
     class Meta:
         icon = "fa-newspaper-o"
         help_text = "Displays images past magazines with links to view them"
+
+class
