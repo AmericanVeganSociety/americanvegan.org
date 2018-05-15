@@ -120,3 +120,20 @@ class MagazineListBlock(blocks.StructBlock):
     class Meta:
         icon = "fa-newspaper-o"
         help_text = "Displays images past magazines with links to view them"
+
+
+class SectionBlock(blocks.StructBlock):
+    headline = blocks.CharBlock(
+        max_length=255,
+        help_text="The header of this section",
+        required=False,
+    )
+    text = blocks.RichTextBlock(
+        help_text="A description of the section.",
+        required=False,
+    )
+
+    class Meta:
+        icon = "fa-puzzle-piece"
+        label = "Section Block"
+        help_text = "Displays long-form information to the reader."
