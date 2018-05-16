@@ -6,7 +6,7 @@ from wagtail.admin.edit_handlers import FieldPanel
 
 class MagazineIndexPage(Page):
     """
-    Shows a list of AVS magazine.
+    Shows a list of AVS magazines.
     """
 
     subpage_types = [
@@ -29,6 +29,8 @@ class MagazinePage(Page):
         help_text="PDF version of this issue."
     )
 
+    # TODO: generate image thumbnails from first page of PDF file?
+
     description = RichTextField(
         blank=True,
         help_text="Additional information about this issue."
@@ -39,3 +41,16 @@ class MagazinePage(Page):
         help_text="By default, the PDF version is available to members only. "
                   "Enable this to allow anyone to download the PDF."
     )
+
+    # TODO: automatically set public=True after next magazine is released?
+
+    parent_page_types = [
+        'magazine.MagazineIndexPage'
+    ]
+
+    content_panels = Page.content_panels + [
+        FieldPanel('published_date'),
+        FieldPanel('file'),
+        FieldPanel('description'),
+        FieldPanel('public'),
+    ]
