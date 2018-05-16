@@ -18,18 +18,37 @@ class RecipePage(Page):
     """
     Displays a vegan recipe.
     """
-    prep_time = models.CharField(max_length=100, blank=True)
-    cook_time = models.CharField(max_length=100, blank=True)
-    servings = models.CharField(max_length=100, blank=True)
-    ingredients = RichTextField(blank=True)
-    directions = RichTextField(blank=True)
+    prep_time = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="How long will it take to prepare the ingredients?"
+    )
+    cook_time = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="How much oven or stove time is involved?"
+    )
+    servings = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="How many humans can this recipe serve?"
+    )
+    ingredients = RichTextField(
+        blank=True,
+        help_text="List the ingredients, and their amounts."
+    )
+    directions = RichTextField(
+        blank=True,
+        help_text="Describe the steps to this recipe in detail."
+    )
 
     image = models.ForeignKey(
         'wagtailimages.Image',
         on_delete=models.SET_NULL,
         null=True,
         related_name='+',
-        blank=True
+        blank=True,
+        help_text="A mouth-watering picture of the recipe."
     )
 
     parent_page_types = [

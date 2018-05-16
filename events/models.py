@@ -21,28 +21,53 @@ class EventPage(Page):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 
-    address_name = models.CharField(max_length=100, blank=True)
-    address_street = models.CharField(max_length=100, blank=True)
-    address_city = models.CharField(max_length=100, blank=True)
-    address_state = models.CharField(max_length=100, blank=True)
-    address_zip = models.CharField(max_length=100, blank=True)
+    address_name = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="Ex. John's Pizzeria"
+    )
+    address_street = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="ex. 123 E South St."
+        )
+    address_city = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="ex. Philadelphia"
+    )
+    address_state = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="ex. PA"
+    )
+    address_zip = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="ex. 19140"
+    )
 
     image = models.ForeignKey(
         'wagtailimages.Image',
         on_delete=models.SET_NULL,
         null=True,
         related_name='+',
-        blank=True
+        blank=True,
+        help_text="An attractive image that represents the event. Avoid images with text."
     )
 
-    description = RichTextField(blank=True)
+    description = RichTextField(
+        blank=True,
+        help_text="describe the event"
+        )
 
     type = models.CharField(
         max_length=100,
         choices=(
             ('AVS', 'AVS'),
             ('Other', 'Other'),
-        )
+        ),
+        help_text="Is this an official AVS event?"
     )
 
     parent_page_types = [
