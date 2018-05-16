@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'wagtail.core',
 
     'wagtailfontawesome',
+    'phonenumber_field',
 
     'modelcluster',
     'taggit',
