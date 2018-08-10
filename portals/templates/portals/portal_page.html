@@ -1,4 +1,5 @@
 {% extends "sidebar_base.html" %}
+{% load wagtailcore_tags %}
 
 {% block sidebar_content %}
   <nav id="sidenav">
@@ -12,102 +13,5 @@
 {% endblock %}
 
 {% block main_content %}
-  <section>
-    <div class="wrap">
-      <h2>What is...</h2>
-      <p class="subheader">Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.</p>
-      <div class="bubbles">
-        <a class="bubble" href="#">
-          <h3>Ahimsa</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-        <a class="bubble" href="#">
-          <h3>Veganism</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-        <a class="bubble" href="#">
-          <h3>Dynamic Harmlessness</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>Why go vegan?</h2>
-      <p class="subheader">Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini. </p>
-      <div class="bubbles">
-        <a class="bubble" href="#">
-          <h3>Health</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-        <a class="bubble" href="#">
-          <h3>Environment</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-        <a class="bubble" href="#">
-          <h3>Animals</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>How to go vegan</h2>
-      <p class="subheader">Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.</p>
-      <div class="bubbles">
-        <a class="bubble" href="#">
-          <h3>Recipes</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-        <a class="bubble" href="#">
-          <h3>Menus</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-        <a class="bubble" href="#">
-          <h3>Beauty Products</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-        <a class="bubble" href="#">
-          <h3>Around the Home</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-        <a class="bubble" href="#">
-          <h3>Encouragement</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-        <a class="bubble" href="#">
-          <h3>Resources</h3>
-          <div class="image">
-            <img src="https://placehold.it/425x540" alt="">
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+  {% include_block page.body %}
 {% endblock %}

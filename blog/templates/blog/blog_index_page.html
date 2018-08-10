@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block main_content %}
+  <section>
+    <div class="bubbles">
+      {% for entry in page.get_children %}
+        <a class="bubble" href="{{ entry.url }}">
+          <h3>{{ entry.title }}</h3>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

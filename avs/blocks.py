@@ -8,6 +8,7 @@ class EventListBlock(blocks.StructBlock):
         icon = "fa-calendar"
         label = "Event List"
         help_text = "Displays a list of upcoming events."
+        template = "avs/blocks/event_list.html"
 
 
 class CtaBlock(blocks.StructBlock):
@@ -39,6 +40,7 @@ class CtaBlock(blocks.StructBlock):
         icon = "fa-crosshairs"
         label = "Call-to-Action"
         help_text = "Entices the viewer to click onto a different page."
+        template = "avs/blocks/cta.html"
 
 
 class PortalListBlock(blocks.StructBlock):
@@ -51,6 +53,7 @@ class PortalListBlock(blocks.StructBlock):
         label = "Portal List"
         help_text = ("Displays a list of portal pages with their title and "
                      "image.")
+        template = "avs/blocks/portal_list.html"
 
 
 class QuoteBlock(blocks.StructBlock):
@@ -83,6 +86,7 @@ class QuoteBlock(blocks.StructBlock):
         icon = "fa-quote-left"
         label = "Quotation"
         help_text = "Displays a quotation and a picture"
+        template = "avs/blocks/quote.html"
 
 
 class FeaturedPageBlock(blocks.StructBlock):
@@ -114,12 +118,14 @@ class FeaturedPageBlock(blocks.StructBlock):
         icon = "fa-file-o"
         label = "Featured Pages"
         help_text = "Displays 3 featured pages with their thumbnails and titles"
+        template = "avs/blocks/featured_page.html"
 
 
 class MagazineListBlock(blocks.StructBlock):
     class Meta:
         icon = "fa-newspaper-o"
         help_text = "Displays images past magazines with links to view them"
+        template = "avs/blocks/magazine_list.html"
 
 
 class SectionBlock(blocks.StructBlock):
@@ -137,3 +143,4 @@ class SectionBlock(blocks.StructBlock):
         icon = "fa-puzzle-piece"
         label = "Section Block"
         help_text = "Displays long-form information to the reader."
+        template = "avs/blocks/section.html"
