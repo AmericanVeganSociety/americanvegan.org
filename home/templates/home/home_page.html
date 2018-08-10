@@ -1,11 +1,133 @@
 {% extends "base.html" %}
+{% block body_class %}home{% endblock %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block main_content %}
+  <section>
+    <div class="wrap">
+      <h2 class="mini"><i class="fa fa-calendar" aria-hidden="true"></i> Upcoming events</h2>
+      <div class="wide bubbles">
+        <a class="bubble" href="#">
+          <h3>Garden Party</h3>
+          <div class="image">
+            <img src="/media/images/gardenparty.jpg" alt="">
+          </div>
+          <div class="meta">
+            <i class="fa fa-clock-o" aria-hidden="true"></i> Sunday, May 27, 2018
+          </div>
+        </a>
+        <a class="bubble" href="#">
+          <h3>Comedy Show</h3>
+          <div class="image">
+            <img src="/media/images/comedyshow.jpg" alt="">
+          </div>
+          <div class="meta">
+            <i class="fa fa-clock-o" aria-hidden="true"></i> Sunday, May 27, 2018
+          </div>
+        </a>
+      </div><!-- .event.bubbles -->
+      <form class="list-signup" method="post" action="">
+        <h3><label for="list-signup-email">Enter your email to get notified of upcoming events</label></h3>
+        <input type="email" name="email" id="list-signup-email" placeholder="Email">
+        <button>Get notified</button>
+      </form>
+    </div><!-- .wrap -->
+  </section>
 
-{% block content %}
-    <h1>Welcome to your new Wagtail site!</h1>
+  <section class="cta highlighted">
+    <div class="wrap">
+      <div class="circle image">
+        <img src="/media/images/magpreview.png" alt="">
+      </div>
+      <h2>Become a member today!</h2>
+      <p class="subheader">Includes a subscription to American Vegan Magazine</p>
+      <div class="right-button">
+        <a href="#" class="cta button">Sign up</a>
+      </div>
+    </div><!-- .wrap -->
+  </section>
 
-    <p>You can access the admin interface <a href="{% url 'wagtailadmin_home' %}">here</a> (make sure you have run "./manage.py createsuperuser" in the console first).</p>
+  <section>
+    <div class="wrap">
+      <h2 class="mini">What you can do</h2>
+      <div class="bubbles">
+        <a class="bubble" href="#">
+          <h3>Discover</h3>
+          <div class="image">
+            <img src="/media/images/discover.jpg" alt="">
+          </div>
+        </a>
+        <a class="bubble" href="#">
+          <h3>Act</h3>
+          <div class="image">
+            <img src="/media/images/act.jpg" alt="">
+          </div>
+        </a>
+        <a class="bubble" href="#">
+          <h3>Support</h3>
+          <div class="image">
+            <img src="/media/images/support.jpg" alt="">
+          </div>
+        </a>
+      </div><!-- .portal.bubbles -->
+    </div><!-- .wrap -->
+  </section>
 
-    <p>If you haven't already given the documentation a read, head over to <a href="http://docs.wagtail.io/">http://docs.wagtail.io</a> to start building on Wagtail</p>
+  <section class="quote">
+    <div class="wrap">
+      <div class="image">
+        <img src="/media/images/jay.jpg" alt="Antique photo of Jay Dinshah at work in AVS headquarters.">
+      </div>
+      <div>
+        <h2>Jay Dinshah</h2>
+        <blockquote>
+          The world can be won for love,
+          peace, and harmony if nonviolent
+          individuals who sincerely believe
+          in these ideals will simply stand
+          up and have the courage to live
+          by them, thus being examples
+          to others.
+        </blockquote>
+        <div class="right-button">
+          <a class="button" href="#">Learn about Jay</a>
+        </div>
+      </div>
+    </div><!-- .wrap -->
+  </section>
+
+  <section class="highlighted">
+    <div class="wrap">
+      <h2>Campaigns</h2>
+      <div class="bubbles">
+        <a class="bubble" href="#">
+          <h3>Vegan Generation</h3>
+          <div class="image">
+            <img src="/media/images/vegangen.jpg" alt="">
+          </div>
+        </a>
+        <a class="bubble" href="#">
+          <h3>Vegan Cuisine Month</h3>
+          <div class="image">
+            <img src="/media/images/cuisine.jpg" alt="">
+          </div>
+        </a>
+        <a class="bubble" href="#">
+          <h3>Dynamic Harmlessness Day</h3>
+          <div class="image">
+            <img src="/media/images/harmlessnessday.jpg" alt="">
+          </div>
+        </a>
+      </div><!-- .portal.bubbles -->
+      <div class="right-button">
+        <a class="button" href="#">See campaigns</a>
+      </div>
+    </div><!-- .wrap -->
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="mini">Past magazines</h2>
+      <img src="/media/images/magazine-placeholder.png" alt="">
+    </div>
+  </section>
 {% endblock %}

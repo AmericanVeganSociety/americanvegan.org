@@ -1,44 +1,169 @@
 {% load static wagtailuserbar %}
-
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>
-            {% block title %}
-                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-                {% with self.get_site.site_name as site_name %}
-                    {% if site_name %}- {{ site_name }}{% endif %}
-                {% endwith %}
-            {% endblock %}
-        </title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="en">
 
-        {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/avs.css' %}">
+  <head>
+    <title>
+      {% block title %}
+        {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+      {% endblock %}
+      {% block title_suffix %}
+        {% with self.get_site.site_name as site_name %}
+          {% if site_name %}- {{ site_name }}{% endif %}
+        {% endwith %}
+      {% endblock %}
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-        {% block extra_css %}
-            {# Override this in templates to add extra stylesheets #}
-        {% endblock %}
-    </head>
+    {# Global stylesheets #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/avs.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Karla|Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.0/css/fork-awesome.min.css" integrity="sha256-sX8HLspqYoXVPetzJRE4wPhIhDBu2NB0kYpufzkQSms=" crossorigin="anonymous">
 
-    <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
+    {% block extra_css %}
+      {# Override this in templates to add extra stylesheets #}
+    {% endblock %}
+  </head>
 
-        {% block content %}{% endblock %}
+  <body class="{% block body_class %}{% endblock %}">
+    {% wagtailuserbar %}
 
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/avs.js' %}"></script>
+    {% block topbar %}
+      <!-- Top navigation bar with logo, slogan, etc -->
+      <div id="topbar">
+        <div class="wrap">
+            <nav id="topnav">
+            <a class="logo" href="/">
+              <img src="{% static "images/logo.svg" %}" alt="">
+            </a>
+            <h1 class="screenreader">Site Navigation</h1>
+            <ul>
+              <li>
+                <a href="/discover">
+                  <div class="nav-title">Discover</div>
+                  <p class="blurb">Learn about veganism, animals, and the environment.</p>
+                </a>
+                <ul>
+                  <li><a href="#">Subpage 1</a></li>
+                  <li><a href="#">Subpage 2</a></li>
+                  <li><a href="#">Subpage 3</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/act">
+                  <div class="nav-title">Act</div>
+                  <p class="blurb">Join the movement and help us create a more compassionate world.</p>
+                </a>
+                <ul>
+                  <li><a href="#">Subpage 1</a></li>
+                  <li><a href="#">Subpage 2</a></li>
+                  <li><a href="#">Subpage 3</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/support">
+                  <div class="nav-title">Support</div>
+                  <p class="blurb">Find out how you can support AVS's hard work, wherever you are.</p>
+                </a>
+                <ul>
+                  <li><a href="#">Subpage 1</a></li>
+                  <li><a href="#">Subpage 2</a></li>
+                  <li><a href="#">Subpage 3</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/membership">
+                  <div class="nav-title">Membership</div>
+                  <p class="blurb">Join forces with AVS and get the magazine, whether you're vegan or not.</p>
+                </a>
+                <ul>
+                  <li><a href="#">Subpage 1</a></li>
+                  <li><a href="#">Subpage 2</a></li>
+                  <li><a href="#">Subpage 3</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div><!-- .wrap -->
+      </div><!-- #topbar -->
+    {% endblock %}
 
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
-    </body>
+    <main>
+      {% block main %}
+        <header class="highlighted">
+          <div class="wrap">
+            <form class="search" action="/search" method="get">
+              <div class="searchbar">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input name="q" type="text" placeholder="Search&hellip;">
+              </div>
+            </form>
+            <h1>{{ page.title }}</h1>
+          </div>
+        </header>
+
+        <div class="content-area">
+          {% block sidebar %}{% endblock %}
+          <div class="main-content">
+            {% block main_content %}{% endblock %}
+          </div><!-- .main-content -->
+        </div><!-- .content-area -->
+      {% endblock %}
+    </main>
+
+    <footer>
+      {% block footer %}
+        <div class="wrap">
+          <h2 class="screenreader">Site footer</h2>
+          <div class="footer-cols">
+            <div class="social">
+              <a class="button" href="#">
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+              </a>
+              <a class="button" href="#">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a class="button" href="#">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a class="button" href="#">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div>
+              <h3>Contact us</h3>
+              <p>56 Dinshah Lane<br>
+              P.O. Box 369<br>
+              <br>
+              Malaga NJ 08328<br>
+              Phone: 856-694-2887<br>
+              Fax: 856-694-2288</p>
+            </div>
+            <form method="post" action="">
+              <h3>Newsletter</h3>
+              <label for="footer-email-field" class="screenreader">Email address</label>
+              <input type="email" name="email" placeholder="Email" id="footer-email-field">
+              <button>Subscribe</button>
+            </form>
+          </div>
+        </div><!-- .wrap -->
+        <div class="footer-bottom">
+          <div class="wrap">
+            <ul class="footerlinks">
+              <li><a class="button" href="#">Home</a></li>
+              <li><a class="button" href="#">Discover</a></li>
+              <li><a class="button" href="#">Act</a></li>
+              <li><a class="button" href="#">Support</a></li>
+              <li><a class="button" href="#">Membership</a></li>
+            </ul>
+          </div><!-- .wrap -->
+        </div><!-- .footer-bottom -->
+      {% endblock %}
+    </footer>
+
+    {% block extra_js %}
+      {# Override this in templates to add extra javascript #}
+    {% endblock %}
+  </body>
 </html>
