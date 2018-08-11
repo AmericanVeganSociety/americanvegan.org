@@ -6,6 +6,7 @@ from avs.blocks import (
     EventListBlock, CtaBlock, QuoteBlock,
     FeaturedPageBlock, MagazineListBlock
 )
+from wagtail.images.edit_handlers import ImageChooserPanel
 
 
 class PortalPage(Page):
@@ -14,6 +15,16 @@ class PortalPage(Page):
     within the section, and helps direct users toward what they are looking
     for.
     """
+
+    listing_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+
     body = StreamField([
         ('events_list', EventListBlock()),
         ('cta', CtaBlock()),
@@ -30,4 +41,5 @@ class PortalPage(Page):
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
+        ImageChooserPanel('listing_image'),
     ]

@@ -1,21 +1,17 @@
 <section class="quote">
   <div class="wrap">
     <div class="image">
-      <img src="/media/images/jay.jpg" alt="Antique photo of Jay Dinshah at work in AVS headquarters.">
+      {% load wagtailimages_tags %}
+      {% image self.image fill-400x400 as image %}
+      <img src="{{ image.url }}" alt="{{ image.title }}">
     </div>
     <div>
-      <h2>Jay Dinshah</h2>
+      <h2>{{ self.title }}</h2>
       <blockquote>
-        The world can be won for love,
-        peace, and harmony if nonviolent
-        individuals who sincerely believe
-        in these ideals will simply stand
-        up and have the courage to live
-        by them, thus being examples
-        to others.
+        {{ self.quote }}
       </blockquote>
       <div class="right-button">
-        <a class="button" href="#">Learn about Jay</a>
+        <a class="button" href="{{ self.button_url }}">{{ self.button_text }}</a>
       </div>
     </div>
   </div><!-- .wrap -->

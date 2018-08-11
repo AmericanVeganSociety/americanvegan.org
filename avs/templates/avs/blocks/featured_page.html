@@ -1,25 +1,24 @@
+{% load wagtailimages_tags %}
+
 <section>
   <div class="wrap">
-    <h2 class="mini">Why...</h2>
+    <h2 class="mini">{{ self.headline }}</h2>
     <div class="bubbles">
-      <a class="bubble" href="#">
-        <h3>Ahimsa</h3>
-        <div class="image">
-          <img src="/media/images/discover.jpg" alt="">
-        </div>
+
+      {% for entry in self.pages %}
+      <a class="bubble" href="{{ entry.url }}">
+        <h3>{{ entry.title }}</h3>
+
+        {% if entry.specific.listing_image %}
+          <div class="image">
+            {% image entry.specific.listing_image fill-400x400 as image %}
+            <img src="{{ image.url }}" alt=" {{ image.title }}">
+          </div>
+        {% endif %}
+
       </a>
-      <a class="bubble" href="#">
-        <h3>Veganism</h3>
-        <div class="image">
-          <img src="/media/images/act.jpg" alt="">
-        </div>
-      </a>
-      <a class="bubble" href="#">
-        <h3>Dynami Harmlessness</h3>
-        <div class="image">
-          <img src="/media/images/support.jpg" alt="">
-        </div>
-      </a>
+      {% endfor %}
+
     </div><!-- .portal.bubbles -->
   </div><!-- .wrap -->
 </section>
