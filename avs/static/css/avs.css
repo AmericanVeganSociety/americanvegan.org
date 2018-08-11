@@ -597,10 +597,10 @@ body.inner .main-content {
 
 #sidenav {
   width: 300px;
+  padding: 40px;
 }
 
 aside.sidebar {
-  padding: 40px;
   order: 1;
   background-color: #fff18f;
 }
@@ -612,4 +612,28 @@ aside.sidebar {
   #sidenav {
     width: auto;
   }
+}
+
+/**************************************
+*  Blocks
+**************************************/
+
+.inner .block-featured_pages .bubble {
+  background-color: #7db85a;
+  border-color: #336633;
+}
+
+.inner .block-featured_pages .bubble:hover {
+  background-color: #fff18f;
+  border-color: #ffd800;
+}
+
+.inner .block-featured_pages .bubble h3 {
+  font-size: 1.2rem;
+  order: 1;
+  margin: 1rem 0;
+}
+
+.inner .block-featured_pages .bubble .image {
+  max-height: 30vh;
 }
