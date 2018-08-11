@@ -381,7 +381,7 @@ h2 + .subheader {
 *  Quote section
 **************************************/
 
-.content-area > section.quote {
+.content-area section.quote {
   border-color: #7db85a;
 }
 
@@ -567,7 +567,7 @@ body.home main > header::after {
   margin-bottom: -300px;
 }
 
-body.home .main-content > *:first-child {
+body.home .main-content > *:first-child > section {
   border-top: 0;
 }
 
