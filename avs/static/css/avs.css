@@ -603,6 +603,19 @@ body.inner .main-content {
 aside.sidebar {
   order: 1;
   background-color: #fff18f;
+  border-left: 12px solid #ffd800;
+  border-top: 6px solid #ffd800;
+  position: relative;
+}
+
+aside.sidebar::after {
+  content: '';
+  height: 12px;
+  width: 300px;
+  background: #fff18f;
+  display: block;
+  position: absolute;
+  bottom: -12px;
 }
 
 @media(max-width: 960px) {
@@ -611,6 +624,9 @@ aside.sidebar {
   }
   #sidenav {
     width: auto;
+  }
+  aside.sidebar::after {
+    display: none;
   }
 }
 
