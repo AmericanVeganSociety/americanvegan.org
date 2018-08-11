@@ -681,3 +681,11 @@ aside.sidebar::after {
     margin: 0;
   }
 }
+
+/**************************************
+*  Hotfixes
+**************************************/
+
+.main-content > *:first-child section.highlighted {
+  background: #7db85a;
+}
