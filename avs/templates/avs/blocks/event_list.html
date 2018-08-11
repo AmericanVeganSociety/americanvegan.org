@@ -1,25 +1,32 @@
+{% load wagtailimages_tags avs_tags %}
+
 <section>
   <div class="wrap">
     <h2 class="mini"><i class="fa fa-calendar" aria-hidden="true"></i> Upcoming events</h2>
     <div class="wide bubbles">
-      <a class="bubble" href="#">
-        <h3>Garden Party</h3>
-        <div class="image">
-          <img src="/media/images/gardenparty.jpg" alt="">
-        </div>
-        <div class="meta">
-          <i class="fa fa-clock-o" aria-hidden="true"></i> Sunday, May 27, 2018
-        </div>
-      </a>
-      <a class="bubble" href="#">
-        <h3>Comedy Show</h3>
-        <div class="image">
-          <img src="/media/images/comedyshow.jpg" alt="">
-        </div>
-        <div class="meta">
-          <i class="fa fa-clock-o" aria-hidden="true"></i> Sunday, May 27, 2018
-        </div>
-      </a>
+
+      {% upcoming_events as upcoming_events %}
+      {% for event in upcoming_events %}
+
+        <a class="bubble" href="#">
+          <h3>{{ event.specific.title }}</h3>
+          <div class="image">
+
+            {% if event.specific.image %}
+              <div class="image">
+                {% image event.specific.image fill-600x300 as image %}
+                <img src="{{ image.url }}" alt=" {{ image.title }}">
+              </div>
+            {% endif %}
+
+          </div>
+          <div class="meta">
+            <i class="fa fa-clock-o" aria-hidden="true"></i> {{ event.start_time }}
+          </div>
+        </a>
+
+        {% endfor %}
+
     </div><!-- .event.bubbles -->
     <form class="list-signup" method="post" action="">
       <h3><label for="list-signup-email">Enter your email to get notified of upcoming events</label></h3>

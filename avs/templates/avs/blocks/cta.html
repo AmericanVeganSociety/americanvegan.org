@@ -2,7 +2,7 @@
   <div class="wrap">
     <div class="circle image">
       {% load wagtailimages_tags %}
-      {% image self.image fill-400x400 as image %}
+      {% image self.image fill-260x260 as image %}
       <img src="{{ image.url }}" alt="">
     </div>
     <h2>{{ self.headline }}</h2>
