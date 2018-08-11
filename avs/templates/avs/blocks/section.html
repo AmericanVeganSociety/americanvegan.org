@@ -1,4 +1,7 @@
+{% load wagtailcore_tags %}
 <section>
-  <h2>{{ self.headline }}</h2>
-  <p>{{ self.text|safe }}<p>
+  <div class="wrap">
+    <h2>{{ self.headline }}</h2>
+    {{ self.text|richtext }}
+  </div>
 </section>

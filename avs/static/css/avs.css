@@ -637,3 +637,31 @@ aside.sidebar {
 .inner .block-featured_pages .bubble .image {
   max-height: 30vh;
 }
+
+/* Richtext */
+
+.rich-text p {
+  max-width: 700px;
+  font-size: 21px;
+  letter-spacing: -.003em;
+  line-height: 1.58;
+  margin: 38px 0;
+}
+
+.richtext-image.right {
+  float: right;
+  margin-left: 20px;
+}
+
+.richtext-image.left {
+  float: left;
+  margin-right: 20px;
+}
+
+@media(max-width: 960px) {
+  .richtext-image.right,
+  .richtext-image.left {
+    float: none;
+    margin: 0;
+  }
+}
