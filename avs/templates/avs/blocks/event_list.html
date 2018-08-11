@@ -8,7 +8,7 @@
       {% upcoming_events as upcoming_events %}
       {% for event in upcoming_events %}
 
-        <a class="bubble" href="#">
+        <a class="bubble" href=" {{ event.url }}">
           <h3>{{ event.specific.title }}</h3>
           <div class="image">
 
