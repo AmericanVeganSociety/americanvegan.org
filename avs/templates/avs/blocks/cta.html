@@ -1,12 +1,14 @@
 <section class="cta highlighted">
   <div class="wrap">
     <div class="circle image">
-      <img src="/media/images/magpreview.png" alt="">
+      {% load wagtailimages_tags %}
+      {% image self.image fill-400x400 as image %}
+      <img src="{{ image.url }}" alt="">
     </div>
-    <h2>Become a member today!</h2>
-    <p class="subheader">Includes a subscription to American Vegan Magazine</p>
+    <h2>{{ self.headline }}</h2>
+    <p class="subheader">{{ self.text }}</p>
     <div class="right-button">
-      <a href="#" class="cta button">Sign up</a>
+      <a href="{{ self.button_url }}" class="cta button">{{ self.button_text }}</a>
     </div>
   </div><!-- .wrap -->
 </section>
