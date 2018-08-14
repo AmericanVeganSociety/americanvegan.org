@@ -7,3 +7,7 @@ django-phonenumber-field==2.0.0
 Sphinx
 sphinx_rtd_theme
 sphinx-autobuild
+
+# Production
+whitenoise==4.0
+gunicorn==19.9.0 
